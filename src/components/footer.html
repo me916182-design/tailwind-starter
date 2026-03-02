@@ -1,0 +1,89 @@
+<!-- 
+  FOOTER COMPONENT
+  =================
+  Этот файл подключается в index.html через тег <inject>
+  
+  Использование: <inject src="/src/components/footer.html" />
+-->
+
+<footer class="bg-gray-900 py-12 text-white">
+  <div class="container-custom">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+      <!-- Колонка 1: О проекте -->
+      <div>
+        <h3 class="text-brand mb-4 text-xl font-bold">TailwindStarter</h3>
+        <p class="text-sm leading-relaxed text-gray-400">
+          Чистый стартовый шаблон на Tailwind CSS v4 с подробным описанием всех возможностей и
+          примерами использования.
+        </p>
+      </div>
+
+      <!-- Колонка 2: Навигация -->
+      <div>
+        <h4 class="mb-4 font-bold">Разделы</h4>
+        <ul class="space-y-2 text-sm">
+          <li>
+            <a href="#examples" class="hover:text-brand text-gray-400 transition-colors">
+              Компоненты
+            </a>
+          </li>
+          <li>
+            <a href="#grid" class="hover:text-brand text-gray-400 transition-colors"> Сетка </a>
+          </li>
+          <li>
+            <a href="#responsive" class="hover:text-brand text-gray-400 transition-colors">
+              Адаптивность
+            </a>
+          </li>
+          <li>
+            <a href="#utilities" class="hover:text-brand text-gray-400 transition-colors">
+              Утилиты
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Колонка 3: Ссылки -->
+      <div>
+        <h4 class="mb-4 font-bold">Ресурсы</h4>
+        <ul class="space-y-2 text-sm">
+          <li>
+            <a
+              href="https://tailwindcss.com/docs"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-brand text-gray-400 transition-colors"
+            >
+              Tailwind CSS Docs
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://vitejs.dev/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-brand text-gray-400 transition-colors"
+            >
+              Vite
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://github.com/tailwindlabs/tailwindcss"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-brand text-gray-400 transition-colors"
+            >
+              GitHub
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Нижняя строка -->
+    <div class="mt-8 border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+      <p>&copy; 2026 TailwindStarter. Все права защищены.</p>
+    </div>
+  </div>
+</footer>
