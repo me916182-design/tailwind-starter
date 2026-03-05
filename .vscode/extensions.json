@@ -3,7 +3,13 @@
     "esbenp.prettier-vscode",
     "bradlc.vscode-tailwindcss",
     "dbaeumer.vscode-eslint",
-    "editorconfig.editorconfig"
+    "editorconfig.editorconfig",
+    "prisma.vscode-styled-components",
+    "ritwickdey.liveserver",
+    "formulahendry.auto-rename-tag",
+    "naumovs.color-highlight",
+    "usernamehw.errorlens",
+    "streetsidesoftware.code-spell-checker"
   ],
   "unwantedRecommendations": []
 }
