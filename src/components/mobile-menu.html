@@ -1,0 +1,70 @@
+<!--
+  MOBILE MENU COMPONENT
+  ======================
+  Мобильное меню с анимацией появления
+  Скрипт для управления меню находится в конце файла
+
+  Использование: подключить в index.html после header
+-->
+
+<div id="mobile-menu" class="mobile-menu fixed inset-0 z-40 hidden bg-black/50 md:hidden">
+  <!-- Панель меню -->
+  <div
+    class="mobile-menu-panel fixed right-0 top-0 h-full w-[80%] max-w-xs transform bg-white shadow-xl transition-transform duration-300"
+  >
+    <!-- Заголовок с кнопкой закрытия -->
+    <div class="flex items-center justify-between border-b px-6 py-4">
+      <span class="font-heading text-xl font-bold">Меню</span>
+      <button id="mobile-menu-close" class="p-2 text-gray-700 hover:text-brand" aria-label="Закрыть">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Навигация -->
+    <nav class="flex flex-col gap-2 px-6 py-6">
+      <a
+        href="#examples"
+        class="mobile-menu-link rounded-lg px-4 py-3 text-gray-700 transition-colors hover:bg-brand/10 hover:text-brand"
+      >
+        Компоненты
+      </a>
+      <a
+        href="#grid"
+        class="mobile-menu-link rounded-lg px-4 py-3 text-gray-700 transition-colors hover:bg-brand/10 hover:text-brand"
+      >
+        Сетка
+      </a>
+      <a
+        href="#responsive"
+        class="mobile-menu-link rounded-lg px-4 py-3 text-gray-700 transition-colors hover:bg-brand/10 hover:text-brand"
+      >
+        Адаптивность
+      </a>
+      <a
+        href="#utilities"
+        class="mobile-menu-link rounded-lg px-4 py-3 text-gray-700 transition-colors hover:bg-brand/10 hover:text-brand"
+      >
+        Утилиты
+      </a>
+    </nav>
+
+    <!-- Кнопка документации -->
+    <div class="border-t px-6 py-6">
+      <a
+        href="https://tailwindcss.com/docs"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-primary block text-center"
+      >
+        Документация
+      </a>
+    </div>
+  </div>
+</div>

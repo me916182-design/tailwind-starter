@@ -1,0 +1,139 @@
+/* ============================================
+   TAILWIND CSS 4 — ОСНОВНОЙ ФАЙЛ СТИЛЕЙ
+   ============================================ */
+
+/* Импорт Tailwind CSS */
+@import 'tailwindcss';
+
+/* ============================================
+   1. КАСТОМНАЯ КОНФИГУРАЦИЯ (@theme)
+   ============================================
+   В Tailwind v4 вся конфигурация пишется здесь,
+   а не в отдельном JS-файле. Переменные становятся
+   доступны как утилитарные классы.
+   ============================================ */
+
+@theme {
+  /* --- Кастомные цвета --- */
+  /* Использование: bg-brand, text-brand, border-brand */
+  --color-brand: #3b82f6;
+
+  /* --- Кастомные шрифты --- */
+  /* Использование: font-heading, font-body */
+  --font-heading: 'Inter', system-ui, sans-serif;
+  --font-body: 'Roboto', system-ui, sans-serif;
+
+  /* --- Кастомные отступы --- */
+  /* Использование: p-custom, m-custom, gap-custom */
+  --spacing-custom: 18px;
+
+  /* --- Кастомные тени --- */
+  /* Использование: shadow-soft, shadow-hard */
+  --shadow-soft: 0 2px 15px rgba(0, 0, 0, 0.1);
+  --shadow-hard: 0 4px 25px rgba(0, 0, 0, 0.15);
+
+  /* --- Кастомные анимации --- */
+  /* Использование: animate-fade-in */
+  --animate-fade-in: fade-in 0.3s ease-in-out;
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+/* ============================================
+   2. БАЗОВЫЕ СТИЛИ (@layer base)
+   ============================================
+   Сброс стилей и базовые настройки элементов.
+   Применяются ко всему документу.
+   ============================================ */
+
+@layer base {
+  * {
+    @apply box-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply font-body text-gray-900 antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading font-bold;
+  }
+
+  img {
+    @apply h-auto max-w-full;
+  }
+}
+
+/* ============================================
+   3. КОМПОНЕНТЫ (@layer components)
+   ============================================
+   Переиспользуемые UI-компоненты.
+   Группируют несколько утилит в один класс.
+   ============================================ */
+
+@layer components {
+  /* Кнопка primary */
+  .btn-primary {
+    @apply bg-brand shadow-soft hover:bg-brand/90 hover:shadow-hard rounded-lg px-6 py-3 font-medium text-white transition-all duration-200;
+  }
+
+  /* Кнопка secondary (outline) */
+  .btn-secondary {
+    @apply border-brand text-brand hover:bg-brand rounded-lg border-2 px-6 py-3 font-medium transition-all duration-200 hover:text-white;
+  }
+
+  /* Карточка */
+  .card {
+    @apply shadow-soft hover:shadow-hard rounded-xl bg-white p-6 transition-shadow duration-200;
+  }
+
+  /* Контейнер с максимальной шириной */
+  .container-custom {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Ссылка с подчёркиванием при наведении */
+  .link-hover {
+    @apply text-brand transition-colors duration-200 hover:underline;
+  }
+}
+
+/* ============================================
+   4. УТИЛИТЫ (@layer utilities)
+   ============================================
+   Единичные полезные классы для специфичных задач.
+   Имеют наивысший приоритет.
+   ============================================ */
+
+@layer utilities {
+  /* Утилита для обрезки текста до 1 строки */
+  .text-truncate {
+    @apply overflow-hidden text-ellipsis whitespace-nowrap;
+  }
+
+  /* Утилита для центрирования flex-контейнера */
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+
+  /* Утилита для сетки с авто-заполнением */
+  .grid-auto-fit {
+    @apply grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3;
+  }
+}

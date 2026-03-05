@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tailwind CSS 4 — Чистый старт</title>
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body class="bg-gray-50">
+    <!-- Header -->
+    <div id="header-container"></div>
+
+    <!-- Мобильное меню -->
+    <div id="mobile-menu-container"></div>
+
+    <!-- Модальное окно -->
+    <div id="modal-container"></div>
+
+    <!-- Основной контент -->
+    <main class="py-12">
+      <div class="container-custom">
+        <!-- Секция: Герой -->
+        <section class="mb-16">
+          <div class="mx-auto max-w-3xl text-center">
+            <h1 class="mb-6 text-4xl sm:text-5xl lg:text-6xl">
+              Tailwind CSS <span class="text-brand">v4</span>
+            </h1>
+            <p class="mb-8 text-lg text-gray-600 sm:text-xl">
+              Чистый стартовый шаблон с подробным описанием всех возможностей
+            </p>
+            <div class="flex flex-col justify-center gap-4 sm:flex-row">
+              <a href="#examples" class="btn-primary">Смотреть примеры</a>
+              <a href="#grid" class="btn-secondary">Сетка</a>
+              <button data-modal-open class="btn-secondary">Открыть модальное окно</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Секция: Примеры компонентов -->
+        <section id="examples" class="mb-16">
+          <h2 class="mb-8 text-center text-3xl">Компоненты</h2>
+
+          <div class="grid-auto-fit">
+            <!-- Карточка 1 -->
+            <div class="card">
+              <h3 class="mb-3 text-xl">Кнопки</h3>
+              <p class="mb-4 text-gray-600">Готовые стили кнопок через @layer components</p>
+              <div class="flex gap-3">
+                <button class="btn-primary">Primary</button>
+                <button class="btn-secondary">Secondary</button>
+              </div>
+            </div>
+
+            <!-- Карточка 2 -->
+            <div class="card">
+              <h3 class="mb-3 text-xl">Типографика</h3>
+              <p class="mb-4 text-gray-600">Кастомные шрифты через @theme</p>
+              <h1 class="mb-2 text-2xl">Заголовок H1</h1>
+              <h2 class="mb-2 text-xl">Заголовок H2</h2>
+              <p class="text-base">Обычный текст</p>
+            </div>
+
+            <!-- Карточка 3 -->
+            <div class="card">
+              <h3 class="mb-3 text-xl">Тени</h3>
+              <p class="mb-4 text-gray-600">Кастомные тени shadow-soft и shadow-hard</p>
+              <div class="flex gap-4">
+                <div class="shadow-soft h-20 w-20 rounded-lg bg-white"></div>
+                <div class="shadow-hard h-20 w-20 rounded-lg bg-white"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Секция: Сетка (Grid) -->
+        <section id="grid" class="mb-16">
+          <h2 class="mb-4 text-center text-3xl">Сетка (Grid)</h2>
+          <p class="mx-auto mb-8 max-w-2xl text-center text-gray-600">
+            Адаптивная сетка с использованием grid-cols и брейкпоинтов. Mobile-first: сначала стили
+            для мобильных, затем для больших экранов.
+          </p>
+
+          <!-- Пример 1: 1 колонка на мобильном, 2 на tablet, 3 на desktop -->
+          <div class="mb-8">
+            <h3 class="mb-4 text-xl">grid-cols-1 md:grid-cols-2 lg:grid-cols-3</h3>
+            <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+              <div class="bg-brand/10 rounded-lg p-6 text-center">Колонка 1</div>
+              <div class="bg-brand/10 rounded-lg p-6 text-center">Колонка 2</div>
+              <div class="bg-brand/10 rounded-lg p-6 text-center">Колонка 3</div>
+              <div class="bg-brand/10 rounded-lg p-6 text-center">Колонка 4</div>
+              <div class="bg-brand/10 rounded-lg p-6 text-center">Колонка 5</div>
+              <div class="bg-brand/10 rounded-lg p-6 text-center">Колонка 6</div>
+            </div>
+          </div>
+
+          <!-- Пример 2: Авто-заполнение -->
+          <div>
+            <h3 class="mb-4 text-xl">grid-auto-fit (через утилиты)</h3>
+            <div class="grid-auto-fit">
+              <div class="rounded-lg bg-green-100 p-6">Элемент 1</div>
+              <div class="rounded-lg bg-green-100 p-6">Элемент 2</div>
+              <div class="rounded-lg bg-green-100 p-6">Элемент 3</div>
+              <div class="rounded-lg bg-green-100 p-6">Элемент 4</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Секция: Адаптивность -->
+        <section id="responsive" class="mb-16">
+          <h2 class="mb-4 text-center text-3xl">Адаптивность (Media Queries)</h2>
+          <p class="mx-auto mb-8 max-w-2xl text-center text-gray-600">
+            Брейкпоинты: sm (640px), md (768px), lg (1024px), xl (1280px), 2xl (1536px)
+          </p>
+
+          <div class="card">
+            <div class="text-center">
+              <p class="text-brand mb-4 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl">
+                Изменяйте размер окна браузера, чтобы увидеть адаптивность текста
+              </p>
+              <div class="flex flex-col justify-center gap-4 md:flex-row">
+                <div class="rounded bg-purple-100 p-4">
+                  <span class="block text-xs text-gray-500">Mobile</span>
+                  <span class="font-medium">flex-col</span>
+                </div>
+                <div class="hidden rounded bg-purple-100 p-4 md:block">
+                  <span class="block text-xs text-gray-500">Tablet+ (md:)</span>
+                  <span class="font-medium">flex-row</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Секция: Утилиты -->
+        <section id="utilities" class="mb-16">
+          <h2 class="mb-4 text-center text-3xl">Кастомные утилиты</h2>
+
+          <div class="grid gap-6 md:grid-cols-2">
+            <div class="card">
+              <h3 class="mb-3 text-xl">.text-truncate</h3>
+              <p class="mb-3 text-gray-600">Обрезка текста до одной строки</p>
+              <div class="w-48 rounded bg-gray-100 p-3">
+                <p class="text-truncate">
+                  Очень длинный текст, который не помещается и будет обрезан с многоточием
+                </p>
+              </div>
+            </div>
+
+            <div class="card">
+              <h3 class="mb-3 text-xl">.flex-center</h3>
+              <p class="mb-3 text-gray-600">Центрирование flex-контейнера</p>
+              <div class="flex-center h-24 rounded bg-gray-100">
+                <span class="text-brand">По центру</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Инъекция footer (подключается из src/components/footer.html) -->
+    <div id="footer-container"></div>
+
+    <!-- Загрузка компонентов -->
+    <script type="module" src="/src/components/load.js"></script>
+  </body>
+</html>

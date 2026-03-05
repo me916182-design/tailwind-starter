@@ -1,0 +1,57 @@
+<!-- 
+  HEADER COMPONENT
+  =================
+  Этот файл подключается в index.html через тег <inject>
+  Плагин vite-plugin-html-inject заменяет тег на содержимое файла
+  
+  Использование: <inject src="/src/components/header.html"></inject>
+-->
+
+<header class="shadow-soft sticky top-0 z-50 bg-white">
+  <div class="container-custom">
+    <div class="flex items-center justify-between py-4">
+      <!-- Логотип -->
+      <a href="/" class="font-heading text-brand text-2xl font-bold">
+        Tailwind<span class="text-gray-900">Starter</span>
+      </a>
+
+      <!-- Навигация (скрыта на мобильных, видна на md+) -->
+      <nav class="hidden items-center gap-8 md:flex">
+        <a href="#examples" class="hover:text-brand text-gray-700 transition-colors">
+          Компоненты
+        </a>
+        <a href="#grid" class="hover:text-brand text-gray-700 transition-colors"> Сетка </a>
+        <a href="#responsive" class="hover:text-brand text-gray-700 transition-colors">
+          Адаптивность
+        </a>
+        <a href="#utilities" class="hover:text-brand text-gray-700 transition-colors"> Утилиты </a>
+      </nav>
+
+      <!-- Кнопка (скрыта на мобильных) -->
+      <a
+        href="https://tailwindcss.com/docs"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-primary hidden sm:inline-block"
+      >
+        Документация
+      </a>
+
+      <!-- Мобильное меню (иконка) -->
+      <button
+        id="mobile-menu-btn"
+        class="p-2 text-gray-700 hover:text-brand md:hidden"
+        aria-label="Меню"
+      >
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
