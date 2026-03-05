@@ -17,8 +17,9 @@
 - [Сетка (Grid)](#-сетка-grid)
 - [Адаптивность (Media Queries)](#-адаптивность-media-queries)
 - [Компоненты](#-компоненты)
-- [HTML-инъекции](#-html-инъекции)
+- [Загрузка компонентов](#-загрузка-компонентов)
 - [Команды npm](#-команды-npm)
+- [Рекомендуемые расширения VS Code](#-рекомендуемые-расширения-vs-code)
 
 ---
 
@@ -479,6 +480,49 @@ document.addEventListener('DOMContentLoaded', initModal);
 | `npm run dev`     | Запуск dev-сервера с HMR |
 | `npm run build`   | Сборка продакшн-версии   |
 | `npm run preview` | Предпросмотр сборки      |
+| `npm run push`    | Отправка изменений на GitHub |
+
+---
+
+## 💻 Рекомендуемые расширения VS Code
+
+Проект включает рекомендации расширений для VS Code. При открытии проекта появится предложение установить их.
+
+### Основные
+
+| Расширение | ID | Описание |
+| ---------- | -- | -------- |
+| **Prettier** | `esbenp.prettier-vscode` | Форматирование кода |
+| **Tailwind CSS IntelliSense** | `bradlc.vscode-tailwindcss` | Автодополнение классов Tailwind |
+| **ESLint** | `dbaeumer.vscode-eslint` | Линтер JavaScript |
+| **EditorConfig** | `editorconfig.editorconfig` | Единый стиль кода |
+
+### Для удобства
+
+| Расширение | ID | Описание |
+| ---------- | -- | -------- |
+| **Auto Rename Tag** | `formulahendry.auto-rename-tag` | Автопереименование тегов |
+| **Color Highlight** | `naumovs.color-highlight` | Предпросмотр цветов |
+| **Error Lens** | `usernamehw.errorlens` | Ошибки прямо в коде |
+| **Code Spell Checker** | `streetsidesoftware.code-spell-checker` | Проверка орфографии |
+
+### AI-ассистенты
+
+| Расширение | ID | Описание |
+| ---------- | -- | -------- |
+| **Qwen Code Companion** | `qwen.qwen-code-companion` | AI-помощник от Alibaba |
+| **Kilo Code** | `kilocode.kilo-code` | AI-помощник для кода |
+| **GitHub Copilot** | `github.copilot` | Автодополнение кода от GitHub |
+| **GitHub Copilot Chat** | `github.copilot-chat` | Чат с AI для помощи в коде |
+
+### Дополнительные
+
+| Расширение | ID | Описание |
+| ---------- | -- | -------- |
+| **Styled Components** | `prisma.vscode-styled-components` | Подсветка CSS-in-JS |
+| **Live Server** | `ritwickdey.liveserver` | Локальный dev-сервер |
+
+**Все расширения указаны в файле** `.vscode/extensions.json`
 
 ---
 
