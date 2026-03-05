@@ -1,12 +1,34 @@
 /**
- * Загрузка HTML-компонентов
- * Подгружает header, footer, mobile-menu и modal в режиме разработки
+ * Автоматическая загрузка компонентов
+ * 
+ * Как создать новый компонент:
+ * 1. Создайте file.html — разметка
+ * 2. Создайте file.js — экспортируйте функцию init() (опционально)
+ * 3. Добавьте контейнер в index.html: <div id="file-container"></div>
+ * 
+ * Всё! Компонент загрузится автоматически.
  */
 
-import { initMobileMenu } from './mobile-menu.js';
-import { initModal } from './modal.js';
+// Автозагрузка всех JS-модулей и инициализация
+const jsModules = import.meta.glob('./*.js', { eager: true });
 
-async function loadComponent(containerId, componentPath) {
+Object.entries(jsModules).forEach(([path, module]) => {
+  // Пропускаем load.js
+  if (path.includes('load.js')) return;
+  
+  // Вызываем init, если есть
+  if (typeof module.init === 'function') {
+    document.addEventListener('DOMContentLoaded', module.init, { once: true });
+  }
+});
+
+/**
+ * Загрузить HTML-компонент в контейнер
+ */
+async function loadComponent(fileName) {
+  const containerId = `${fileName}-container`;
+  const componentPath = `/src/components/${fileName}.html`;
+  
   try {
     const response = await fetch(componentPath);
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
@@ -16,18 +38,22 @@ async function loadComponent(containerId, componentPath) {
       container.innerHTML = html;
     }
   } catch (error) {
-    console.error(`Ошибка загрузки компонента ${componentPath}:`, error);
+    console.error(`Ошибка загрузки ${fileName}:`, error);
   }
 }
 
-// Загрузка компонентов при загрузке DOM
-document.addEventListener('DOMContentLoaded', () => {
-  loadComponent('header-container', '/src/components/header.html');
-  loadComponent('mobile-menu-container', '/src/components/mobile-menu.html');
-  loadComponent('footer-container', '/src/components/footer.html');
-  loadComponent('modal-container', '/src/components/modal.html');
-
-  // Инициализация компонентов
-  setTimeout(initMobileMenu, 100);
-  setTimeout(initModal, 100);
+// Автозагрузка всех HTML-компонентов при загрузке DOM
+document.addEventListener('DOMContentLoaded', async () => {
+  // Список компонентов для загрузки
+  const components = [
+    'header',
+    'footer',
+    'mobile-menu',
+    'modal'
+  ];
+  
+  // Загружаем все компоненты
+  for (const component of components) {
+    await loadComponent(component);
+  }
 });

@@ -2,11 +2,11 @@
  * Модальное окно — логика работы
  *
  * Использование:
- * - Открыть: <button data-modal-open="modal-id">
+ * - Открыть: <button data-modal-open>
  * - Закрыть: <button data-modal-close> или клик вне контента
  */
 
-export function initModal() {
+export function init() {
   const modal = document.getElementById('modal');
   const modalOverlay = modal?.querySelector('.modal-overlay');
   const modalContent = modal?.querySelector('.modal-content');
@@ -70,6 +70,3 @@ export function initModal() {
     }
   });
 }
-
-// Инициализация при загрузке DOM
-document.addEventListener('DOMContentLoaded', initModal);
