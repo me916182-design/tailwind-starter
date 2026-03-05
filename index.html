@@ -8,13 +8,169 @@
   </head>
   <body class="bg-gray-50">
     <!-- Header -->
-    <div id="header-container"></div>
+    <header class="shadow-soft sticky top-0 z-50 bg-white">
+      <div class="container-custom">
+        <div class="flex items-center justify-between py-4">
+          <!-- Логотип -->
+          <a href="/" class="font-heading text-brand text-2xl font-bold">
+            Tailwind<span class="text-gray-900">Starter</span>
+          </a>
+
+          <!-- Навигация (скрыта на мобильных, видна на md+) -->
+          <nav class="hidden items-center gap-8 md:flex">
+            <a href="#examples" class="hover:text-brand text-gray-700 transition-colors">
+              Компоненты
+            </a>
+            <a href="#grid" class="hover:text-brand text-gray-700 transition-colors"> Сетка </a>
+            <a href="#responsive" class="hover:text-brand text-gray-700 transition-colors">
+              Адаптивность
+            </a>
+            <a href="#utilities" class="hover:text-brand text-gray-700 transition-colors"> Утилиты </a>
+          </nav>
+
+          <!-- Кнопка (скрыта на мобильных) -->
+          <a
+            href="https://tailwindcss.com/docs"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-primary hidden sm:inline-block"
+          >
+            Документация
+          </a>
+
+          <!-- Мобильное меню (иконка) -->
+          <button
+            id="mobile-menu-btn"
+            class="hover:text-brand p-2 text-gray-700 md:hidden"
+            aria-label="Меню"
+          >
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
 
     <!-- Мобильное меню -->
-    <div id="mobile-menu-container"></div>
+    <div id="mobile-menu" class="mobile-menu fixed inset-0 z-40 hidden bg-black/50 md:hidden">
+      <!-- Панель меню -->
+      <div
+        class="mobile-menu-panel fixed top-0 right-0 h-full w-[80%] max-w-xs transform bg-white shadow-xl transition-transform duration-300"
+      >
+        <!-- Заголовок с кнопкой закрытия -->
+        <div class="flex items-center justify-between border-b px-6 py-4">
+          <span class="font-heading text-xl font-bold">Меню</span>
+          <button
+            id="mobile-menu-close"
+            class="hover:text-brand p-2 text-gray-700"
+            aria-label="Закрыть"
+          >
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Навигация -->
+        <nav class="flex flex-col gap-2 px-6 py-6">
+          <a
+            href="#examples"
+            class="mobile-menu-link hover:bg-brand/10 hover:text-brand rounded-lg px-4 py-3 text-gray-700 transition-colors"
+          >
+            Компоненты
+          </a>
+          <a
+            href="#grid"
+            class="mobile-menu-link hover:bg-brand/10 hover:text-brand rounded-lg px-4 py-3 text-gray-700 transition-colors"
+          >
+            Сетка
+          </a>
+          <a
+            href="#responsive"
+            class="mobile-menu-link hover:bg-brand/10 hover:text-brand rounded-lg px-4 py-3 text-gray-700 transition-colors"
+          >
+            Адаптивность
+          </a>
+          <a
+            href="#utilities"
+            class="mobile-menu-link hover:bg-brand/10 hover:text-brand rounded-lg px-4 py-3 text-gray-700 transition-colors"
+          >
+            Утилиты
+          </a>
+        </nav>
+
+        <!-- Кнопка документации -->
+        <div class="border-t px-6 py-6">
+          <a
+            href="https://tailwindcss.com/docs"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-primary block text-center"
+          >
+            Документация
+          </a>
+        </div>
+      </div>
+    </div>
 
     <!-- Модальное окно -->
-    <div id="modal-container"></div>
+    <div id="modal" class="modal fixed inset-0 z-50 hidden" role="dialog" aria-modal="true">
+      <!-- Затемнение фона -->
+      <div
+        class="modal-overlay absolute inset-0 bg-black/50 opacity-0 transition-opacity duration-300"
+      ></div>
+
+      <!-- Контент модального окна -->
+      <div class="modal-container flex min-h-full items-center justify-center p-4">
+        <div
+          class="modal-content relative w-full max-w-lg scale-95 transform rounded-xl bg-white p-6 opacity-0 shadow-2xl transition-all duration-300"
+        >
+          <!-- Заголовок с кнопкой закрытия -->
+          <div class="mb-4 flex items-center justify-between">
+            <h3 class="font-heading text-2xl font-bold text-gray-900">Заголовок модального окна</h3>
+            <button
+              data-modal-close
+              class="rounded-lg p-2 text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-700"
+              aria-label="Закрыть"
+            >
+              <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Тело модального окна -->
+          <div class="modal-body text-gray-600">
+            <p>
+              Это пример модального окна. Здесь может быть любой контент: формы, изображения, текст и
+              т.д.
+            </p>
+          </div>
+
+          <!-- Футер с кнопками -->
+          <div class="mt-6 flex justify-end gap-3">
+            <button data-modal-close class="btn-secondary rounded-lg px-4 py-2">Отмена</button>
+            <button class="btn-primary rounded-lg px-4 py-2">Подтвердить</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Основной контент -->
     <main class="py-12">
@@ -158,10 +314,91 @@
       </div>
     </main>
 
-    <!-- Инъекция footer (подключается из src/components/footer.html) -->
-    <div id="footer-container"></div>
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-12 text-white">
+      <div class="container-custom">
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+          <!-- Колонка 1: О проекте -->
+          <div>
+            <h3 class="text-brand mb-4 text-xl font-bold">TailwindStarter</h3>
+            <p class="text-sm leading-relaxed text-gray-400">
+              Чистый стартовый шаблон на Tailwind CSS v4 с подробным описанием всех возможностей и
+              примерами использования.
+            </p>
+          </div>
 
-    <!-- Загрузка компонентов -->
-    <script type="module" src="/src/components/load.js"></script>
+          <!-- Колонка 2: Навигация -->
+          <div>
+            <h4 class="mb-4 font-bold">Разделы</h4>
+            <ul class="space-y-2 text-sm">
+              <li>
+                <a href="#examples" class="hover:text-brand text-gray-400 transition-colors">
+                  Компоненты
+                </a>
+              </li>
+              <li>
+                <a href="#grid" class="hover:text-brand text-gray-400 transition-colors"> Сетка </a>
+              </li>
+              <li>
+                <a href="#responsive" class="hover:text-brand text-gray-400 transition-colors">
+                  Адаптивность
+                </a>
+              </li>
+              <li>
+                <a href="#utilities" class="hover:text-brand text-gray-400 transition-colors">
+                  Утилиты
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Колонка 3: Ссылки -->
+          <div>
+            <h4 class="mb-4 font-bold">Ресурсы</h4>
+            <ul class="space-y-2 text-sm">
+              <li>
+                <a
+                  href="https://tailwindcss.com/docs"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="hover:text-brand text-gray-400 transition-colors"
+                >
+                  Tailwind CSS Docs
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://vitejs.dev/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="hover:text-brand text-gray-400 transition-colors"
+                >
+                  Vite
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://github.com/tailwindlabs/tailwindcss"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="hover:text-brand text-gray-400 transition-colors"
+                >
+                  GitHub
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Нижняя строка -->
+        <div class="mt-8 border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+          <p>&copy; 2026 TailwindStarter. Все права защищены.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Скрипты компонентов -->
+    <script type="module" src="/src/components/mobile-menu.js"></script>
+    <script type="module" src="/src/components/modal.js"></script>
   </body>
 </html>

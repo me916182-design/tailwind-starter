@@ -2,7 +2,7 @@
  * Мобильное меню — логика работы
  */
 
-export function init() {
+function init() {
   const menu = document.getElementById('mobile-menu');
   const menuPanel = menu?.querySelector('.mobile-menu-panel');
   const openBtn = document.getElementById('mobile-menu-btn');
@@ -64,3 +64,6 @@ export function init() {
     }
   });
 }
+
+// Инициализация при загрузке DOM
+document.addEventListener('DOMContentLoaded', init);

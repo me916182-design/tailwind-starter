@@ -6,7 +6,7 @@
  * - Закрыть: <button data-modal-close> или клик вне контента
  */
 
-export function init() {
+function init() {
   const modal = document.getElementById('modal');
   const modalOverlay = modal?.querySelector('.modal-overlay');
   const modalContent = modal?.querySelector('.modal-content');
@@ -70,3 +70,6 @@ export function init() {
     }
   });
 }
+
+// Инициализация при загрузке DOM
+document.addEventListener('DOMContentLoaded', init);
