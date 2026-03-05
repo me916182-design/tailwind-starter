@@ -7,8 +7,14 @@
     <link rel="stylesheet" href="./src/style.css" />
   </head>
   <body class="bg-gray-50">
-    <!-- Инъекция header (подключается из src/components/header.html) -->
-    <inject src="/src/components/header.html"></inject>
+    <!-- Header -->
+    <div id="header-container"></div>
+
+    <!-- Мобильное меню -->
+    <div id="mobile-menu-container"></div>
+
+    <!-- Модальное окно -->
+    <div id="modal-container"></div>
 
     <!-- Основной контент -->
     <main class="py-12">
@@ -25,6 +31,7 @@
             <div class="flex flex-col justify-center gap-4 sm:flex-row">
               <a href="#examples" class="btn-primary">Смотреть примеры</a>
               <a href="#grid" class="btn-secondary">Сетка</a>
+              <button data-modal-open class="btn-secondary">Открыть модальное окно</button>
             </div>
           </div>
         </section>
@@ -152,6 +159,9 @@
     </main>
 
     <!-- Инъекция footer (подключается из src/components/footer.html) -->
-    <inject src="/src/components/footer.html" />
+    <div id="footer-container"></div>
+
+    <!-- Загрузка компонентов -->
+    <script type="module" src="/src/components/load.js"></script>
   </body>
 </html>
