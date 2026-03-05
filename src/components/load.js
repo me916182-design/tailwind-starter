@@ -1,34 +1,24 @@
 /**
  * Автоматическая загрузка компонентов
- * 
+ *
  * Как создать новый компонент:
  * 1. Создайте file.html — разметка
  * 2. Создайте file.js — экспортируйте функцию init() (опционально)
  * 3. Добавьте контейнер в index.html: <div id="file-container"></div>
- * 
+ *
  * Всё! Компонент загрузится автоматически.
  */
 
-// Автозагрузка всех JS-модулей и инициализация
-const jsModules = import.meta.glob('./*.js', { eager: true });
-
-Object.entries(jsModules).forEach(([path, module]) => {
-  // Пропускаем load.js
-  if (path.includes('load.js')) return;
-  
-  // Вызываем init, если есть
-  if (typeof module.init === 'function') {
-    document.addEventListener('DOMContentLoaded', module.init, { once: true });
-  }
-});
+// Предзагрузка всех JS-модулей компонентов через import.meta.glob
+const componentModules = import.meta.glob('./*.js', { eager: false });
 
 /**
  * Загрузить HTML-компонент в контейнер
  */
 async function loadComponent(fileName) {
   const containerId = `${fileName}-container`;
-  const componentPath = `/src/components/${fileName}.html`;
-  
+  const componentPath = new URL(`./${fileName}.html`, import.meta.url).href;
+
   try {
     const response = await fetch(componentPath);
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
@@ -37,8 +27,29 @@ async function loadComponent(fileName) {
     if (container) {
       container.innerHTML = html;
     }
+    return true;
   } catch (error) {
     console.error(`Ошибка загрузки ${fileName}:`, error);
+    return false;
+  }
+}
+
+/**
+ * Импортировать и инициализировать JS-модуль компонента
+ */
+async function initComponent(fileName) {
+  const modulePath = `./${fileName}.js`;
+  const loadModule = componentModules[modulePath];
+
+  if (!loadModule) return;
+
+  try {
+    const module = await loadModule();
+    if (typeof module?.init === 'function') {
+      module.init();
+    }
+  } catch (error) {
+    console.error(`Ошибка инициализации ${fileName}:`, error);
   }
 }
 
@@ -51,9 +62,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     'mobile-menu',
     'modal'
   ];
-  
-  // Загружаем все компоненты
+
+  // Загружаем все компоненты последовательно
   for (const component of components) {
-    await loadComponent(component);
+    const loaded = await loadComponent(component);
+    if (loaded) {
+      await initComponent(component);
+    }
   }
 });
